@@ -33,7 +33,7 @@ public class StreamsAdapterDemo {
 
     private static String serviceName = "dynamodb";
     private static String dynamodbEndpoint = "https://dynamodb.us-east-1.amazonaws.com";
-    private static String streamsEndpoint = "https://streams.dynamodb.us-east-1.amazonaws.com";
+    private static String streamsEndpoint = "";
     private static String tablePrefix = "KCL-Demo";
     private static String streamArn;
 
@@ -68,7 +68,7 @@ public class StreamsAdapterDemo {
         System.out.println("Starting DynamoStream...");
 
         String srcTable = args[0];
-        String endpoint = args[1];
+        dynamodbEndpoint = args[1];
         streamsCredentials = new ProfileCredentialsProvider();
         dynamoDBCredentials = new ProfileCredentialsProvider();
 
