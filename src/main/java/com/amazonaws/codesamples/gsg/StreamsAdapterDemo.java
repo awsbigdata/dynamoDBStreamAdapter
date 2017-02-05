@@ -72,7 +72,7 @@ public class StreamsAdapterDemo {
         streamsCredentials = new ProfileCredentialsProvider();
         dynamoDBCredentials = new ProfileCredentialsProvider();
 
-        recordProcessorFactory = new StreamsRecordProcessorFactory(dynamoDBCredentials, endpoint);
+        recordProcessorFactory = new StreamsRecordProcessorFactory(dynamoDBCredentials, dynamodbEndpoint);
         streamsEndpoint = DynamoDBConnectorUtilities.getStreamsEndpoint(dynamodbEndpoint);
         //System.out.println(streamsEndpoint);
         //sourceRegion = DynamoDBConnectorUtilities.getRegionFromEndpoint(params.getSourceEndpoint());
