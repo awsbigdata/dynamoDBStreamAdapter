@@ -61,14 +61,16 @@ public class StreamsAdapterDemo {
     public static void  main(String args[] ){
 
 
-        if(args.length<2){
-            System.out.println("Please enter the table name and end point");
+        if(args.length<3){
+            System.out.println("Please enter the table name , end point and checkpoint table");
             System.exit(1);
         }
         System.out.println("Starting DynamoStream...");
 
         String srcTable = args[0];
         dynamodbEndpoint = args[1];
+        String taskName = args[2];
+
         streamsCredentials = new ProfileCredentialsProvider();
         dynamoDBCredentials = new ProfileCredentialsProvider();
 
@@ -90,7 +92,6 @@ public class StreamsAdapterDemo {
 
 
 
-        String taskName="dynamostream";
         // obtain the Stream ID associated with the source table
         String streamArn = dynamoDBClient.describeTable(srcTable).getTable().getLatestStreamArn();
         if (streamArn == null) {
